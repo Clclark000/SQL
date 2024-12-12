@@ -1,4 +1,5 @@
 --These queries were compleated using a database with multiple tables to quantify statistics about customer and order data
+--This project was done on SQLiteStudio
 
 --1. How many orders were placed in January?
 
