@@ -1,4 +1,4 @@
--- This short project utilizes the following Superstore data provided in a course by Break Into Tech:
+-- This short project utilizes the following Superstore data provided by Break Into Tech:
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
