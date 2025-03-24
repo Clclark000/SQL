@@ -1,4 +1,4 @@
---This analysis utilizes the following Fortune 500 dataset:
+--This analysis utilizes the following Fortune 500 dataset provided by Break Into Tech:
 
 CREATE TABLE fortune_companies (
     company_id INTEGER PRIMARY KEY,
@@ -58,29 +58,28 @@ VALUES
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
---This dataset was used to answer the following 5 queries:
 
 --1. Which companies in the technology or energy industries have healthcare and at least 15 days of paid time off a year?
 
 SELECT company_name
 FROM fortune_companies
-WHERE industry='Technology'
-OR industry='Energy'
-AND healthcare_benefits=1
-AND paid_time_off_days>=15;
+WHERE industry = 'Technology'
+OR industry = 'Energy'
+AND healthcare_benefits = 1
+AND paid_time_off_days >= 15;
 
 --2. In which insustries do employees have an average tenure of 6 or more years?
 SELECT industry, ROUND(AVG(avg_employee_tenure), 1) AS avg_tenure
 FROM fortune_companies
 GROUP BY industry
-HAVING avg_tenure>=6;
+HAVING avg_tenure >= 6;
 
 --3. Which companies are good, okay, or bad for people who want to start a family based on maternity leave and healthcare?
 
 SELECT company_name, 
-CASE WHEN maternity_leave_weeks>=10 AND healthcare_benefits=1 THEN 'Good'
-WHEN maternity_leave_weeks>=10 AND healthcare_benefits=0 THEN 'Okay'
-WHEN maternity_leave_weeks<10 AND healthcare_benefits=1 THEN 'Okay'
+CASE WHEN maternity_leave_weeks >= 10 AND healthcare_benefits = 1 THEN 'Good'
+WHEN maternity_leave_weeks >= 10 AND healthcare_benefits = 0 THEN 'Okay'
+WHEN maternity_leave_weeks < 10 AND healthcare_benefits = 1 THEN 'Okay'
 ELSE 'Bad' END AS family_compatibility, maternity_leave_weeks, healthcare_benefits
 FROM fortune_companies
 ORDER BY family_compatibility;
@@ -89,7 +88,7 @@ ORDER BY family_compatibility;
 
 SELECT COUNT(company_name) AS companies_over_3000_employees, industry
 FROM fortune_companies
-WHERE employees>3000
+WHERE employees > 3000
 GROUP BY industry;
 
 --5. Which 5 companies earned the highest revenue?
