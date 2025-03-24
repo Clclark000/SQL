@@ -1,4 +1,4 @@
--- This project utilizes the following Superstore data:
+-- This short project utilizes the following Superstore data provided in a course by Break Into Tech:
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
@@ -42,15 +42,14 @@ FROM superstore;
 
 SELECT MAX(price)
 FROM superstore
-WHERE category='Kitchen Supplies';
+WHERE category = 'Kitchen Supplies';
 
--- 4. Come up with your own question about the data and try to answer it using SQL.
--- How many items are in stock that cost $100 or more and what are they? (ans. 145; Memory Foam Mattress, Smart LED TV, Robot Vacuum Cleaner, Air Purifier, Ergonomic Office Chair)
+-- 4. How many items are in stock that cost $100 or more and what are they? (ans. 145; Memory Foam Mattress, Smart LED TV, Robot Vacuum Cleaner, Air Purifier, Ergonomic Office Chair)
 
 SELECT SUM(stock_quantity)
 FROM superstore
-WHERE price>=100;
+WHERE price >= 100;
 
 SELECT item_name, stock_quantity, price
 FROM superstore
-WHERE price>=100;
+WHERE price >= 100;
